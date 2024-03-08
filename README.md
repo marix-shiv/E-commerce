@@ -20,4 +20,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `TO run this project please install node modules`
 
 **it takes login details and shows in the UI the dummy api link (https://dummyjson.com/auth/login)**
+<br />
 **it shows products in the UI the dummy api link (https://dummyjson.com/products)**
