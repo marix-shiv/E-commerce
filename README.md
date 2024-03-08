@@ -19,5 +19,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `TO run this project please install node modules`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
+**it takes login details and shows in the UI the dummy api link (https://dummyjson.com/auth/login)**
+**it shows products in the UI the dummy api link (https://dummyjson.com/products)**
