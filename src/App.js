@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Header from "./Components/Header";
+import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProductRedux } from "./Redux/productSlice";
+import Footer from "./Components/Footer";
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      const data = await fetch("https://dummyjson.com/products");
+      const pdata = await data.json();
+      // console.log(pdata.products);
+      dispatch(addProductRedux(pdata.products));
+    })();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;

@@ -1,13 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import Home from "./Components/Home";
+import Contact from "./Components/Contact";
+import Products from "./Components/Products";
+import Login from "./Components/Login";
+import { store } from "./Redux/index";
+import { Provider } from "react-redux";
+import CartShow from "./Components/CartShow";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route index element={<Home />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/cartshow" element={<CartShow />} />
+    </Route>
+  )
+);
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
