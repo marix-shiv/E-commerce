@@ -4,8 +4,7 @@ const initialState = {
   id: "",
   email: "",
   username: "",
-  firstname: "",
-  lastname: "",
+  name: "",
   image: "",
 };
 
@@ -14,16 +13,15 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     loginRedux: (state, action) => {
-      //   console.log(action.payload);
-      state.id = action.payload.id;
-      state.username = action.payload.username;
-      state.email = action.payload.email;
-      state.fistname = action.payload.fistName;
-      state.lastname = action.payload.lastName;
-      state.image = action.payload.image;
+      console.log(action.payload);
+      state.id = action.payload[0].id;
+      state.username = action.payload[0].username;
+      state.email = action.payload[0].email;
+      state.name = action.payload[0].name;
+      state.image = action.payload[0].image;
     },
     logoutRedux: (state, action) => {
-        // console.log(action.payload);
+      // console.log(action.payload);
       state.id = "";
       state.username = "";
       state.email = "";

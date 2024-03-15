@@ -17,6 +17,8 @@ const Header = () => {
   const loginDetails = useSelector((state) => state.user);
   const cartData = useSelector((state) => state.products.cartItem);
 
+  console.log(loginDetails);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,7 +37,7 @@ const Header = () => {
       >
         <Container fluid>
           <Navbar.Brand>
-            <div>R2H</div>
+            <div>{loginDetails.username}</div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -55,10 +57,10 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <div className="d-flex ">
-              <Link variant="outline-success"  as={Link} to='/cartshow'>
+              <Link variant="outline-success" as={Link} to="/cartshow">
                 <CiShoppingCart fontSize={42} />
               </Link>
-              <div className="cart" >
+              <div className="cart">
                 <Stack direction="vertical" gap={4}>
                   <Badge pill bg="danger" direction="vertical">
                     {cartData.length}

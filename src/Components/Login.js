@@ -20,7 +20,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (username && password) {
-      const dataFetch = await fetch("https://dummyjson.com/auth/login", {
+      const dataFetch = await fetch("http://localhost:8080/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -78,9 +78,17 @@ const Login = () => {
                       // checked
                       className="form-check-input mr-3 ml-3"
                     />
-                    <label htmlFor="customCheck1" className="form-check-label">
-                      Remember password
-                    </label>
+                    <div className="d-flex flex-direction-row gap-5">
+                      <label
+                        htmlFor="customCheck1"
+                        className="form-check-label"
+                      >
+                        Remember me
+                      </label>
+                      <div>
+                        Not a user...<a href="/signup">Sign Up</a>
+                      </div>
+                    </div>
                   </div>
                   <div className="d-grid gap-2 mt-2">
                     <button
